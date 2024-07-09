@@ -67,7 +67,7 @@ describe('routes.ts todos', () => {
         const todoId = 9999
         const { body } = await request(testServer.app)
             .get(`/api/todos/${todoId}`)
-            .expect(400);
+            .expect(404);
 
         expect(body).toEqual({ error: `Todo with id ${todoId} not found` })
     });
@@ -132,7 +132,7 @@ describe('routes.ts todos', () => {
     });
 
 
-    // TODO: Realizar la operacion con errores personalizados
+    
     test('should return 404 if TODO not found', async () => {
 
         const todoId = 9999;
@@ -192,15 +192,13 @@ describe('routes.ts todos', () => {
     });
 
 
-    //TODO : CHANGE TO 404
     test('should return 404 if TODO do not exist api/todos/:id', async () => {
 
         const todoId = 99999
         const { body } = await request(testServer.app)
             .delete(`/api/todos/${todoId}`)
-            .expect(400);
+            .expect(404);
 
-        console.log(body)
         expect(body).toEqual({ error: 'Todo with id 99999 not found' });
 
         
