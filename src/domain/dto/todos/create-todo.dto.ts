@@ -16,7 +16,7 @@ export class CreateTodoDto {
 
         const { text } = props;
 
-        if (!text) return ['Text propery is required', undefined]
+        if (!text || text.length === 0) return ['Text propery is required', undefined]
 
         const todo = new CreateTodoDto(text)
 

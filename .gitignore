@@ -5,3 +5,5 @@ keys/
 .env
 
 /postgres
+
+/coverage
